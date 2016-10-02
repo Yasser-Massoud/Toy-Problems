@@ -6,7 +6,7 @@ A word must be at least two letters long.
 For an added challenge, try for O(n).
 
 
-Example
+Examples
 
 Input														Output
 
