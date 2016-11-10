@@ -23,7 +23,7 @@ max_rot(56789) should return 68957
 
 */
 
-function maxRot(){
+function maxRot(n){
   var arr = [n];
   var str = n.toString();
   var len = str.length;
