@@ -14,17 +14,22 @@ str:
 "so cool!!1!"						1
 */
 
-function charSum (str) {
-  var total = str.split('');
+// function charSum (str) {
+//   var total = str.split('');
   
-  total = total.map(function(num){
-	return Math.floor(num);
-    }).
-    filter(function(val){
-    	return isNaN(val)===false;
-    }).
-    reduce(function(sum, num){
-    	return sum + num;
-    });
-    return total;
+//   total = total.map(function(num){
+// 	return Math.floor(num);
+//     }).
+//     filter(function(val){
+//     	return isNaN(val)===false;
+//     }).
+//     reduce(function(sum, num){
+//     	return sum + num;
+//     });
+//     return total;
+// }
+
+function charSum (str) {
+  return str.split('').reduce((sum, char) =>
+    sum + (Number(char) || 0), 0)
 }
