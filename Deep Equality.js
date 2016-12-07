@@ -9,32 +9,44 @@ Write a function that, given two objects, returns whether or not the two are dee
 var a = { foo: [2, { bar: {}}]}
 var b = { foo: [2, { bar: []}]}
 
-deepEquals = function(obj1, obj2) {
-	
-   var keys1 = Object.keys(obj1);
-   var keys2 = Object.keys(obj2);
-   if (keys1.length !== keys2.length) { return false; }
-   for (var key in obj1) {
-       if (!obj2.hasOwnProperty(key)) {
-           return false;
-       }
-       
-       if (typeof obj1[key] === 'object' && typeof obj2[key] === 'object') {
-        
-       			for(var i= 0; i < obj1[key].length; i += 1){
-       				if (obj1[key][i]!==obj2[key][i]){
-       					return false;
-       				}
-       			}
-       		
-           return deepEquals(obj1[key], obj2[key]);
-       }
-      if (obj1[key] !== obj2[key]) {
-          return false;
-      }
-       
-       
+function deepEquals(a, b){
+  
+  // If it is an object we will test for deep equality and nested thigns
+  if(typeof a === "object" && typeof b === "object"){
     
-   }
-   return true;
-}
+    // Make sure they are both objects or both arrays
+    if(Array.isArray(a) !== Array.isArray(b)) 
+      return false
+    
+    // Get all the keys for both Arrays and Objects
+    // for loop doesn't care about object type
+    var aKeys = Object.keys(a)
+    var bKeys = Object.keys(b)
+    
+    
+    // Make sure that the collection lengths are the same.
+    if(aKeys.length !== bKeys.length) 
+      return false
+    
+    for(var i=aKeys.length; i>=0; i--){
+      
+      // If it wasn't deepEqual using all of A's keys, return false 
+      if(deepEquals(b[aKeys[i]], a[aKeys[i]]) === false) 
+        return false
+    }
+
+    for(var i=bKeys.length; i>=0; i--){
+      // If it wasn't deepEqual using all of B's keys, return false 
+      if(deepEquals(b[bKeys[i]], a[bKeys[i]]) === false) 
+        return false
+    }
+
+    // If it didn't fail, return true
+    return true
+  }
+  
+  // If not an object do a normal comparison. This is also the base case.
+  return a === b
+};
+
+deepEquals(a,b);
