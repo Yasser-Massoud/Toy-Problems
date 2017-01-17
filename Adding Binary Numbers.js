@@ -16,14 +16,14 @@ function add(a,b){
   // Happy Coding ^_^
   num1 = a.split("");
   num2 = b.split("");
-  // сравниваем длины
+
   while (num1.length != num2.length) {
     if (num1.length > num2.length) num2.unshift("0");
     else num1.unshift("0");
   }
   var temp = 0;
   var res = [];
-  // складываем
+
   for(var i = num1.length - 1; i >= 0; i--) {
     var temp2 = Number(num1[i]) + Number(num2[i]) + Number(temp);
     if (temp2 > 2) {
@@ -36,9 +36,9 @@ function add(a,b){
     res.unshift(temp2);
 
   }
-  // добавляем если нужно разряд
+  
   if (temp == 1) res.unshift("1");
-  // удаляем впереди нули если есть
+
   while (res[0] != 1 && res.length > 1) {
     res.shift();
   }
