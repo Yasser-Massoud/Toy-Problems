@@ -44,9 +44,6 @@ function add(a,b){
   }
   return res.join("");
 };
-Best Practices0Clever0
-0ForkLink
-RogueAI
 
 function add(a,b){
   a = trim0(a)
