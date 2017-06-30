@@ -11,6 +11,23 @@ You are not allowed to convert binary to decimal & vice versa.
 The sum should contain No leading zeroes.
 */
 
+/*
+*Pseudo code
+small operation of adding binaries
+  1. add the two ints starting from the right
+      set a var to remainder = 0
+      if there is a remainder add it as well 
+  2. from the solution:
+      a) 0 unshift 0
+      b) 1 unshift 1
+      c) 2 unshift 1 set remainder to 1
+While there are still integers to add together from the binary numbers perform the operation above      
+  else 
+  check to see if the remainder is 1 then add it to the remaining binary number
+  else unshift the rest of the remaining integers in the longer binary number
+*/
+
+
 ///Solution///
 function add(a,b){
   // Happy Coding ^_^
