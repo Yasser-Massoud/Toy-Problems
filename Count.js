@@ -4,6 +4,7 @@ The main idea is to count all the occuring characters(UTF-8) in string. If you h
 What if the string is empty ? Then the result should be empty object literal { }
 */
 
+//add a comment to contribute my commit
 ///Solution///
 
 function count (string) {  
