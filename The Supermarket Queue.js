@@ -34,39 +34,23 @@ P.S. The situation in this kata can be likened to the more-computer-science-rela
 
 ///Solution///
 
-/***************
-/
-/ Under construction!!
-/
-*****************/
+function queueTime(customers, n) {
+// add each customer's time to each till, processing one customer at a time. 
+// the total time of the max till is the answer.
 
-function queueTime(customers, cashiers) {
-  let runTime = customers[0];
-  let runTimeArr = [customers[0]]
-  let index = cashiers 
-  let nextInQueue = 
-    customers.length > cashiers 
-    ? customers[index] : null
-  let threadsAndRunTimes = {}
-  threadsAndRunTimes = createRunTime(cashiers, customers)
-  for (var prop in threadsAndRunTimes) {
-    threadsAndRunTimes[prop] >= runTime
-    ? runTime = threadsAndRunTimes[prop]
-    : runTimeArr.push(threadsAndRunTimes[prop]);
-    console.log( "runTime : ", runTime , "threadsAndRunTimes: ", threadsAndRunTimes,'nextInQueue : ', nextInQueue, 'runTimeArr : ', runTimeArr);
+  if (customers.length == 0)
+    return 0;
+
+  var a = [];
+
+  for (var i = 0; i < n; i++)
+    a.push(0); // fill n tills with 0s
+    
+  while (customers.length > 0)
+  {
+      var i = a.indexOf(Math.min.apply(null, a)); // i is the index of the minimum element
+      a[i] += customers.shift(); // add next customer to a at index i
+      console.log(a)
   }
-  runTimeArr = runTimeArr.sort((a,b) => a-b);
-    console.log(runTimeArr);
-  if (nextInQueue === null) {
-  return runTime;
-  } else {
-    for (var prop in threadsAndRunTimes) {
-      if (threadsAndRunTimes[prop] === runTimeArr[0]) {
-        threadsAndRunTimes[prop] = threadsAndRunTimes[prop] + nextInQueue;
-        nextInQueue = customers[++index];
-        threadsAndRunTimes[prop] >= runTime ? runTime = threadsAndRunTimes[prop]: null
-        console.log('newThreadsAndRunTimes ;', threadsAndRunTimes, "nextInQueue", nextInQueue, 'runTime : ', runTime);
-      }
-    }
-  }
+  return Math.max.apply(null, a);
 }
