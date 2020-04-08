@@ -17,12 +17,28 @@
  * function ListNode(val) {
  *     this.val = val;
  *     this.next = null;
- * }
+ * change}
  */
+const input = [1,2,3,4,5]
+function ListNode(val, node) {
+    this.val = val;
+    this.next = node || null;
+ }
+function createSinglyLinked (input)
 /**
  * @param {ListNode} head
  * @return {ListNode}
  */
 const middleNode = function(head) {
-    
+  let fast = head;
+  let slow = head;
+  while (fast.next !== null && fast.next.next !== null) {
+    fast = fast.next.next;
+    slow = slow.next;
+  }
+  const middle = slow.val;
+  return middle;
 };
+
+middleNode(n1)//?
+
