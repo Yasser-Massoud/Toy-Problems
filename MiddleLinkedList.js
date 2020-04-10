@@ -20,11 +20,7 @@
  * change}
  */
 const input = [1,2,3,4,5]
-function ListNode(val, node) {
-    this.val = val;
-    this.next = node || null;
- }
-function createSinglyLinked (input)
+
 /**
  * @param {ListNode} head
  * @return {ListNode}
@@ -32,13 +28,11 @@ function createSinglyLinked (input)
 const middleNode = function(head) {
   let fast = head;
   let slow = head;
-  while (fast.next !== null && fast.next.next !== null) {
+  while (fast && fast.next) {
     fast = fast.next.next;
     slow = slow.next;
   }
-  const middle = slow.val;
+  const middle = slow;
   return middle;
 };
-
-middleNode(n1)//?
 
