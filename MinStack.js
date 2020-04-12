@@ -48,7 +48,6 @@ var MinStack = function() {
     }
     this.top = () => storage[storage.length-1].value
     this.getMin = () => min;
-    this.storage = () => storage;
 };
 
 // /** 
